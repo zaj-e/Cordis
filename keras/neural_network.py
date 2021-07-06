@@ -33,7 +33,7 @@ class CustomModel:
         self.model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
     def train(self):
-        self.model.fit(self.X_scaled, self.y, epochs=150, batch_size=10)
+        self.model.fit(self.X, self.y, epochs=150, batch_size=10)
 
     def determine_accuracy(self, should_print: bool = False):
         _, accuracy = self.model.evaluate(self.X_scaled, self.y)
@@ -58,8 +58,8 @@ class CustomModel:
 
     def save(self):
         model_json = self.model.to_json()
-        with open("model.json", "w") as json_file:
+        with open("model/model.json", "w") as json_file:
             json_file.write(model_json)
 
-        self.model.save_weights("model.h5")
+        self.model.save_weights("model/model.h5")
         print('Custom Model Saved')
