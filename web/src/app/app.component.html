@@ -1,0 +1,123 @@
+<mat-grid-list cols="4" rowHeight="2:1">
+
+  <mat-grid-tile colspan="2">
+    <img src="/assets/banner.png" style="width: 60%" class="custom-image">
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" rowspan="4">
+    <div style="display: flex; flex-direction: column; text-align: center">
+      <div class="column" style="margin-bottom: 2rem; text-align: center">
+        <div>
+          <mat-label>Edad</mat-label>
+        </div>
+        <div>
+          <mat-slider
+            thumbLabel
+            [displayWith]="formatLabel"
+            tickInterval="1000"
+            step="1"
+            min="18"
+            max="100"
+            aria-label="units">
+          </mat-slider>
+        </div>
+      </div>
+
+      <div class="column" style="margin-bottom: 2rem; text-align: center">
+        <div>
+          <mat-label>Sexo</mat-label>
+        </div>
+        <div>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="substernal">Hombre</mat-button-toggle>
+            <mat-button-toggle value="no-substernal">Mujer</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+
+      <div class="column" style="margin-bottom: 2rem; text-align: center">
+        <div>
+          <mat-label>Ubicación de dolor en pecho</mat-label>
+        </div>
+        <div>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="substernal">Subesternal</mat-button-toggle>
+            <mat-button-toggle value="no-substernal">No Subesternal</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+
+      <div class="column" style="margin-bottom: 2rem; text-align: center">
+        <div>
+          <mat-label>Presión sanguínea en reposo [mmHg]</mat-label>
+        </div>
+        <div>
+          <mat-slider
+            thumbLabel
+            [displayWith]="formatLabel"
+            tickInterval="1000"
+            step="1"
+            min="50"
+            max="200"
+            aria-label="units">
+          </mat-slider>
+        </div>
+      </div>
+
+      <div class="column" style="margin-bottom: 2rem; text-align: center">
+        <div>
+          <mat-label>Colesterol sérico [mg/dl]</mat-label>
+        </div>
+        <div>
+          <mat-slider
+            thumbLabel
+            [displayWith]="formatLabel"
+            tickInterval="1000"
+            step="1"
+            min="100"
+            max="350"
+            aria-label="units">
+          </mat-slider>
+        </div>
+      </div>
+
+      <div class="column" style="margin-bottom: 2rem; text-align: center">
+        <div>
+          <mat-label>Glucemia en ayunas > 120 mg/dl</mat-label>
+        </div>
+        <div>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="true">Verdadero</mat-button-toggle>
+            <mat-button-toggle value="false">Falso</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+
+      <div class="column" style="margin-bottom: 2rem; text-align: center">
+        <div>
+          <mat-label>Resultados electrocardiográficos en reposo</mat-label>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Elegir</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="result">
+              <mat-option *ngFor="let result of electrocardiogram_results" [value]="result.value">
+                {{result.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile style="background: yellow" colspan="1" rowspan="4">4</mat-grid-tile>
+
+  <mat-grid-tile colspan="2" rowspan="2">
+    <img src="/assets/heartbeat.gif" class="custom-image">
+  </mat-grid-tile>
+
+  <mat-grid-tile style="background: green" colspan="2" rowspan="1">3.5</mat-grid-tile>
+
+</mat-grid-list>
+

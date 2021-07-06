@@ -1,0 +1,27 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 200px;
+}
+
+.example-card{
+  display:inline-block;
+  justify-content: center;
+}
+
+.mat-card-cvr{
+  width: 100%;
+  text-align:center;
+}
+
+.example-form-field {
+  width: 200px;
+}
+
+.custom-image {
+  clip-path: inset(10px 10px 10px 10px)
+}
