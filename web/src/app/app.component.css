@@ -25,3 +25,11 @@
 .custom-image {
   clip-path: inset(10px 10px 10px 10px)
 }
+
+.big-as-button{
+  font-size: x-large;
+  width: 300px!important;
+  height: 100px!important;
+  min-width: unset!important;
+}
+

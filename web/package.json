@@ -22,7 +22,6 @@
     "@angular/router": "~12.1.1",
     "@tensorflow/tfjs": "^3.7.0",
     "ajv-keywords": "^3.5.2",
-    "danfojs-node": "^0.2.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "webgl-strict-types": "^1.0.4",

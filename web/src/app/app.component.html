@@ -1,123 +1,244 @@
 <mat-grid-list cols="4" rowHeight="2:1">
+  <mat-grid-tile colspan="1" rowspan="4">
+    <mat-card style="background: #cec6b8; padding: 3rem">
+      <div style="display: flex; flex-direction: column; text-align: center">
+
+        <div class="column" style="margin-bottom: 3rem; text-align: center">
+          <div>
+            <mat-label>Sexo</mat-label>
+          </div>
+          <div>
+            <mat-button-toggle-group [(ngModel)]="sex" name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle value="0">Mujer</mat-button-toggle>
+              <mat-button-toggle value="1">Hombre</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+
+        <div class="column" style="margin-bottom: 3rem; text-align: center">
+          <div>
+            <mat-label>Glucemia en ayunas > 120 mg/dl</mat-label>
+          </div>
+          <div>
+            <mat-button-toggle-group [(ngModel)]="fbs" name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle value="1">Verdadero</mat-button-toggle>
+              <mat-button-toggle value="0">Falso</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+
+        <div class="column" style="margin-bottom: 3rem; text-align: center">
+          <div>
+            <mat-label>Angina inducida por ejercicio</mat-label>
+          </div>
+          <div>
+            <mat-button-toggle-group [(ngModel)]="exang" name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle value="1">Verdadero</mat-button-toggle>
+              <mat-button-toggle value="0">Falso</mat-button-toggle>
+            </mat-button-toggle-group>
+          </div>
+        </div>
+
+        <div class="column" style="margin-bottom: 2rem; text-align: center">
+          <div>
+            <mat-label>Tipo de dolor en el pecho</mat-label>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Elegir</mat-label>
+              <mat-select [(ngModel)]="cp" name="result">
+                <mat-option *ngFor="let result of chestPain" [value]="result.value">
+                  {{result.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="column" style="margin-bottom: 2rem; text-align: center">
+          <div>
+            <mat-label
+              title="[normal, tener una anomalía de la onda ST-T
+    (inversiones de la onda T y / o elevación o depresión del ST de> 0,05 mV), hipertrofia ventricular izquierda
+     probable o definitiva)]"
+            >Resultados electrocardiográficos en reposo
+            </mat-label>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Elegir</mat-label>
+              <mat-select [(ngModel)]="restecg" name="result">
+                <mat-option *ngFor="let result of electrocardiogramResults" [value]="result.value">
+                  {{result.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="column" style="margin-bottom: 3rem; text-align: center">
+          <div>
+            <mat-label>Thal</mat-label>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Elegir</mat-label>
+              <mat-select [(ngModel)]="thal" name="result">
+                <mat-option *ngFor="let result of thalOptions" [value]="result.value">
+                  {{result.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+      </div>
+    </mat-card>
+  </mat-grid-tile>
+
 
   <mat-grid-tile colspan="2">
     <img src="/assets/banner.png" style="width: 60%" class="custom-image">
   </mat-grid-tile>
+
   <mat-grid-tile colspan="1" rowspan="4">
-    <div style="display: flex; flex-direction: column; text-align: center">
-      <div class="column" style="margin-bottom: 2rem; text-align: center">
-        <div>
-          <mat-label>Edad</mat-label>
+    <mat-card style="background: #cec6b8; padding: 3rem">
+      <div style="display: flex; flex-direction: column; text-align: center">
+        <div class="column" style="margin-bottom: 2rem; text-align: center">
+          <div>
+            <mat-label>Edad</mat-label>
+          </div>
+          <div>
+            <mat-slider [(ngModel)]="age"
+              thumbLabel
+              [displayWith]="formatLabel"
+              tickInterval="1000"
+              step="1"
+              min="18"
+              max="100"
+              aria-label="units">
+            </mat-slider>
+          </div>
         </div>
-        <div>
-          <mat-slider
-            thumbLabel
-            [displayWith]="formatLabel"
-            tickInterval="1000"
-            step="1"
-            min="18"
-            max="100"
-            aria-label="units">
-          </mat-slider>
+
+
+        <div class="column" style="margin-bottom: 2rem; text-align: center">
+          <div>
+            <mat-label>Presión sanguínea en reposo [mmHg]</mat-label>
+          </div>
+          <div>
+            <mat-slider [(ngModel)]="trestbps"
+              thumbLabel
+              [displayWith]="formatLabel"
+              tickInterval="1000"
+              step="1"
+              min="50"
+              max="200"
+              aria-label="units">
+            </mat-slider>
+          </div>
         </div>
+
+        <div class="column" style="margin-bottom: 2rem; text-align: center">
+          <div>
+            <mat-label>Colesterol sérico [mg/dl]</mat-label>
+          </div>
+          <div>
+            <mat-slider [(ngModel)]="chol"
+              thumbLabel
+              [displayWith]="formatLabel"
+              tickInterval="1000"
+              step="1"
+              min="100"
+              max="350"
+              aria-label="units">
+            </mat-slider>
+          </div>
+        </div>
+
+        <div class="column" style="margin-bottom: 2rem; text-align: center">
+          <div>
+            <mat-label>Frecuencia cardíaca máxima alcanzada</mat-label>
+          </div>
+          <div>
+            <mat-slider [(ngModel)]="thalach"
+              thumbLabel
+              [displayWith]="formatLabel"
+              tickInterval="1000"
+              step="1"
+              min="60"
+              max="220"
+              aria-label="units">
+            </mat-slider>
+          </div>
+        </div>
+
+        <div class="column" style="margin-bottom: 2rem; text-align: center">
+          <div>
+            <mat-label title="Depresión del ST inducida por el ejercicio en relación con el reposo">Depresión del ST
+              inducida por el ejercicio
+            </mat-label>
+          </div>
+          <div>
+            <mat-slider [(ngModel)]="oldpeak"
+              thumbLabel
+              [displayWith]="formatLabel"
+              tickInterval="1000"
+              step="0.1"
+              min="0"
+              max="5"
+              aria-label="units">
+            </mat-slider>
+          </div>
+        </div>
+
+        <div class="column" style="margin-bottom: 2rem; text-align: center">
+          <div>
+            <mat-label>Pendiente del segmento ST de ejercicio pico</mat-label>
+          </div>
+          <div>
+            <mat-slider [(ngModel)]="slope"
+              thumbLabel
+              [displayWith]="formatLabel"
+              tickInterval="1000"
+              step="1"
+              min="-1"
+              max="5"
+              aria-label="units">
+            </mat-slider>
+          </div>
+        </div>
+
+        <div class="column" style="margin-bottom: 2rem; text-align: center">
+          <div>
+            <mat-label title="Número de vasos principales coloreados por la floración">Número de vasos principales
+            </mat-label>
+          </div>
+          <div>
+            <mat-slider [(ngModel)]="ca"
+              thumbLabel
+              [displayWith]="formatLabel"
+              tickInterval="1000"
+              step="1"
+              min="-1"
+              max="5"
+              aria-label="units">
+            </mat-slider>
+          </div>
+        </div>
+
       </div>
+    </mat-card>
 
-      <div class="column" style="margin-bottom: 2rem; text-align: center">
-        <div>
-          <mat-label>Sexo</mat-label>
-        </div>
-        <div>
-          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-            <mat-button-toggle value="substernal">Hombre</mat-button-toggle>
-            <mat-button-toggle value="no-substernal">Mujer</mat-button-toggle>
-          </mat-button-toggle-group>
-        </div>
-      </div>
-
-      <div class="column" style="margin-bottom: 2rem; text-align: center">
-        <div>
-          <mat-label>Ubicación de dolor en pecho</mat-label>
-        </div>
-        <div>
-          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-            <mat-button-toggle value="substernal">Subesternal</mat-button-toggle>
-            <mat-button-toggle value="no-substernal">No Subesternal</mat-button-toggle>
-          </mat-button-toggle-group>
-        </div>
-      </div>
-
-      <div class="column" style="margin-bottom: 2rem; text-align: center">
-        <div>
-          <mat-label>Presión sanguínea en reposo [mmHg]</mat-label>
-        </div>
-        <div>
-          <mat-slider
-            thumbLabel
-            [displayWith]="formatLabel"
-            tickInterval="1000"
-            step="1"
-            min="50"
-            max="200"
-            aria-label="units">
-          </mat-slider>
-        </div>
-      </div>
-
-      <div class="column" style="margin-bottom: 2rem; text-align: center">
-        <div>
-          <mat-label>Colesterol sérico [mg/dl]</mat-label>
-        </div>
-        <div>
-          <mat-slider
-            thumbLabel
-            [displayWith]="formatLabel"
-            tickInterval="1000"
-            step="1"
-            min="100"
-            max="350"
-            aria-label="units">
-          </mat-slider>
-        </div>
-      </div>
-
-      <div class="column" style="margin-bottom: 2rem; text-align: center">
-        <div>
-          <mat-label>Glucemia en ayunas > 120 mg/dl</mat-label>
-        </div>
-        <div>
-          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-            <mat-button-toggle value="true">Verdadero</mat-button-toggle>
-            <mat-button-toggle value="false">Falso</mat-button-toggle>
-          </mat-button-toggle-group>
-        </div>
-      </div>
-
-      <div class="column" style="margin-bottom: 2rem; text-align: center">
-        <div>
-          <mat-label>Resultados electrocardiográficos en reposo</mat-label>
-        </div>
-        <div>
-          <mat-form-field appearance="fill">
-            <mat-label>Elegir</mat-label>
-            <mat-select [(ngModel)]="selectedValue" name="result">
-              <mat-option *ngFor="let result of electrocardiogram_results" [value]="result.value">
-                {{result.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </div>
-
-
-    </div>
   </mat-grid-tile>
-  <mat-grid-tile style="background: yellow" colspan="1" rowspan="4">4</mat-grid-tile>
 
   <mat-grid-tile colspan="2" rowspan="2">
     <img src="/assets/heartbeat.gif" class="custom-image">
   </mat-grid-tile>
 
-  <mat-grid-tile style="background: green" colspan="2" rowspan="1">3.5</mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <button class="big-as-button" style="background: #cec6b8" mat-button (click)="openDialog()" >Predecir</button>
+  </mat-grid-tile>
 
 </mat-grid-list>
 
